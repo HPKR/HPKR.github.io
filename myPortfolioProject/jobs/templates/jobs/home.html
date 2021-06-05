@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.83.1">
+	
+    <title>Hardeep Kaur - Portfolio</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">  
+
+    <!-- Bootstrap core CSS -->
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+<link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
+<meta name="theme-color" content="#7952b3">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+		body {
+  background-color: #fefbd8;
+} 
+
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
+
+.main-timeline{
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+}
+.main-timeline:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.main-timeline:before{
+    content: '';
+    height: 95%;
+    width: 2px;
+    border: 2px dashed #a3a3ad;
+    transform: translateX(-50%);
+    position: absolute;
+    left: 50%;
+    top: 30px;
+}
+.main-timeline .timeline{
+    width: 50%;
+    padding: 0 35px 0 27px;
+    margin: 0 10px 20px 0;
+    float: left;
+}
+.main-timeline .timeline-content{
+    background: linear-gradient(#d9d9d9,#e7e7e7);
+    text-align: center;
+    padding: 15px 115px 15px 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px -5px rgba(0,0,0,0.6);
+    display: block;
+    position: relative;
+}
+.main-timeline .timeline-content:hover{ text-decoration: none; }
+.main-timeline .timeline-content:before,
+.main-timeline .timeline-content:after{
+    content: "";
+    background: linear-gradient(to bottom,#647cde,#78b0fa);
+    width: 45px;
+    height: 45px;
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 13px;
+    right: -58px;
+    z-index: 1;
+}
+.main-timeline .timeline-content:after{
+    background: #fff;
+    transform:rotate(-45deg) scale(0.6);
+}
+.main-timeline .timeline-icon{
+    color: #fff;
+    background: linear-gradient(to right,#617de0,#78b1f8);
+    font-size: 23px;
+    text-align: center;
+    line-height: 40px;
+    height: 40px;
+    width: 40px;
+    transform: translateY(-50%) rotate(-45deg);
+    position: absolute;
+    top: 50%;
+    left: -20px;
+}
+.main-timeline .timeline-icon i{ transform: rotate(45deg); }
+.main-timeline .timeline-year{
+    color: #fff;
+    background: linear-gradient(to bottom,#617de0,#617de0,#78b1f8);
+    font-size: 32px;
+    font-weight: 900;
+    text-align: center;
+    line-height: 100px;
+    height: 100%;
+    width: 100px;
+    border-radius: 0 0 5px 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.main-timeline .timeline-year:after{
+    content: '';
+    background: linear-gradient(to right bottom,#617de0 49%, transparent 50%);
+    height: 33px;
+    width: 33px;
+    position: absolute;
+    right: -33px;
+    top: 0;
+}
+.main-timeline .title{
+    color: #000;
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 7px 0;
+}
+.main-timeline .description{
+    color: #333;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin: 0;
+}
+.main-timeline .timeline:nth-child(even){
+    padding: 0 27px 0 35px;
+    margin: 0 0 20px 10px;
+    float: right;
+}
+.main-timeline .timeline:nth-child(even) .timeline-content{ padding: 15px 40px 15px 115px; }
+.main-timeline .timeline:nth-child(even) .timeline-content:before,
+.main-timeline .timeline:nth-child(even) .timeline-content:after{
+    right: auto;
+    left: -58px;
+}
+.main-timeline .timeline:nth-child(even) .timeline-icon{
+    left: auto;
+    right: -20px;
+}
+.main-timeline .timeline:nth-child(even) .timeline-year{
+    right: auto;
+    left: 0;
+    border-radius: 0 0 0 5px;
+}
+.main-timeline .timeline:nth-child(even) .timeline-year:after{
+    transform: rotateY(180deg);
+    right: auto;
+    left: -33px;
+}
+.main-timeline .timeline:nth-child(4n+2) .timeline-content:before,
+.main-timeline .timeline:nth-child(4n+2) .timeline-icon {background:linear-gradient(to left,#f53b57,#ef5777);}
+.main-timeline .timeline:nth-child(4n+2) .timeline-year {background:linear-gradient(to bottom,#f53b57,#f53b57,#ef5777);}
+.main-timeline .timeline:nth-child(4n+2) .timeline-year:after{background:linear-gradient(to right bottom, #f53b57 49%, transparent 50%);}
+.main-timeline .timeline:nth-child(4n+3) .timeline-content:before,
+.main-timeline .timeline:nth-child(4n+3) .timeline-icon {background:linear-gradient(to bottom,#227e22 ,#63a211);}
+.main-timeline .timeline:nth-child(4n+3) .timeline-year {background:linear-gradient(to bottom,#227e22,#227e22,#63a211);}
+.main-timeline .timeline:nth-child(4n+3) .timeline-year:after{background:linear-gradient(to right bottom, #227e22 49%, transparent 50%);}
+.main-timeline .timeline:nth-child(4n+4) .timeline-content:before,
+.main-timeline .timeline:nth-child(4n+4) .timeline-icon {background:linear-gradient(to left,#7d5ac2 ,#b493fe);}
+.main-timeline .timeline:nth-child(4n+4) .timeline-year {background:linear-gradient(to bottom,#7d5ac2,#7d5ac2,#b493fe);}
+.main-timeline .timeline:nth-child(4n+4) .timeline-year:after{background:linear-gradient(to right bottom, #7d5ac2 49%, transparent 50%);}
+@media screen and (max-width:767px){
+
+	.bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+	
+    .main-timeline:before{
+        left: 17px;
+        transform: translateX(0);
+    }
+    .main-timeline .timeline,
+    .main-timeline .timeline:nth-child(even){
+        width: 100%;
+        padding: 0 0 27px 40px;
+        margin: 0 0 30px 0;
+    }
+    .main-timeline .timeline-content,
+    .main-timeline .timeline:nth-child(even) .timeline-content{
+        padding: 70px 15px 35px 15px;
+    }
+    .main-timeline .timeline-content:before,
+    .main-timeline .timeline-content:after,
+    .main-timeline .timeline:nth-child(even) .timeline-content:before,
+    .main-timeline .timeline:nth-child(even) .timeline-content:after{
+        height: 25px;
+        width: 25px;
+        top: 10px;
+        right: auto;
+        left: -34px;
+    }
+    .main-timeline .timeline-icon,
+    .main-timeline .timeline:nth-child(even) .timeline-icon{
+        transform: translateY(0) translateX(50%) rotate(-45deg);
+        left: auto;
+        right: 50%;
+        top: auto;
+        bottom: -20px;
+    }
+    .main-timeline .timeline-year,
+    .main-timeline .timeline:nth-child(even) .timeline-year{
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        border-radius: 0 5px 5px 5px;
+        right: auto;
+        left: 0;
+    }
+    .main-timeline .timeline-year:after,
+    .main-timeline .timeline:nth-child(even) .timeline-year:after{
+        height: 20px;
+        width: 20px;
+        transform: rotateY(180deg);
+        right: auto;
+        left: -20px;
+    }
+}
+@media screen and (max-width:576px){
+    .main-timeline .title{ font-size: 18px; }
+}
+
+    </style>
+   
+  </head>
+  <body>    
+
+<main>
+	<h1 class="visually-hidden">Headers examples</h1>
+  <div class="container">
+	
+	<header class="p-2 bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-2 mb-3 border-bottom">
+        <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+          <svg class="bi me-2" width="100" height="64" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+        </a>
+
+        <ul class="nav col-12 col-md-auto me-md-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="#Home" id="Home" class="nav-link px-4 text-white">Home</a></li>
+		  <li><a href="#about" class="nav-link px-4 text-white">About</a></li>
+          <li><a href="#Projects" class="nav-link px-4 text-white">Projects</a></li>
+          <li><a href="https://www.linkedin.com/in/hardeepkaur1709/" target="_blank" class="nav-link px-4 text-white">LinkedIn</a></li>
+          <li><a href="https://www.github.com/HPKR" target="_blank" class="nav-link px-4 text-white">GitHub</a></li>
+          <li><a href="https://www.hackerrank.com/hardeepkaur_1709" target="_blank" class="nav-link px-4 text-white">HackerRank</a></li>
+		  <li><a href="https://medium.com/@hardeepkaur_17" target="_blank" class="nav-link px-4 text-white">Medium</a></li>
+		  </ul>
+        
+      </div>
+    </div>
+  </header>
+  </div>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-dark"><b><strong><u>Hardeep Kaur</u></strong></b></h1>
+		
+         <div class="about-content">
+                        <h2 id="about"><strong>Brief Introduction</strong></h2>
+						<p>
+			<a href="mailto:hardeepkaur11709@gmail.com" class="btn btn-primary my-0 px-4"><strong>Email me</strong></a>   
+		</p>
+                        <br><br>
+						<figure>
+							<img src="{% static 'MySkills.jpg' %}" height="238" width="587"></img>
+							<figcaption>Powered by Tableau <span class="iconify" data-icon="ion-logo-tableau" data-inline="false"></span></figcaption>
+						</figure>
+                        <p style="font-size:21px;">
+                            <br> My name is Hardeep Kaur. I am a holder of <strong>Post Graduate Certificate</strong> in <strong>Data Analytics for Business</strong> from St. Clair College, Windsor, Ontario. I am passionate about exploration of the data and what we can gather from the data. In my opinion, data has the power to change the world.
+                            <br><br>
+                            I started my professional journey as an Associate Software Engineer at Tech Mahindra, India. With time, I rose to senior positions and entered the world of Analytics. I have worked on multiple large and diverse datasets and explored them to draw insights out of them. My skills include <strong>data analysis, data visualization, and machine learning.</strong>
+                            I am proficient in problem solving, and enjoy working in challenging conditions.
+                            I often explore datasets posted on Kaggle, UCI Machine Learning repository and build machine learning models for data science projects. I also enjoy solving challenges posted on HackerRank.                            
+							<br><br>
+                            In the below sections, I have mentioned the <a href="#Projects">Projects</a> that I have worked on. Please feel free to explore their respective GitHub repositories by clicking on the project description.                            
+                        </p>
+                    </div>      		
+				
+		<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>		
+      </div>
+    </div>
+		
+  </section>
+  
+
+
+<div class="container px-2 py-3" id="My-Timeline" align="center">
+    <h2 id="My-Timeline" class="pb-2 border-bottom"><strong>Timeline</strong></h2>
+</div>
+
+<!-- Source of Timeline Code: https://bestjquery.com/tutorial/timeline/demo106/ -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-timeline">
+			<div class="timeline">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fa fa-globe"></i>
+                        </div>
+                        <span class="timeline-year">2021</span>
+                        <h3 class="title">Graduated from St. Clair College</h3>
+                        <p class="description">
+							Graduated from St. Clair College, Windsor with Post Graduate Certificate in Data Analytics for Business with cumulative GPA of 3.888 on a scale of 4.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fa fa-rocket"></i>
+                        </div>
+                        <span class="timeline-year">2020</span>
+                        <h3 class="title">Projects details</h3>
+                        <p class="description">
+                            From August 2020 to April 2021, I have worked on projects of diverse domains such as Marketing, eCommerce, Banking, Healthcare, etc. I have utilized my learning of python, Tableau, R, SQL, Data Analysis, Machine Learning, and built machine learning models.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fa fa-globe"></i>
+                        </div>
+                        <span class="timeline-year">2020</span>
+                        <h3 class="title">Data Analytics for Business at St. Clair College, Windsor</h3>
+                        <p class="description">
+                            In January 2020, I started pursing Data Analytics for Business, a post-graduate program at St. Clair College. During this period, I worked on multiple projects and utilized my knowledge of data analysis, data visualization, machine learning and deep learning to derive the insights out of the datasets.
+                        </p>
+                    </div>
+                </div>
+                
+				
+				<div class="timeline">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fa fa-globe"></i>
+                        </div>
+                        <span class="timeline-year">2017</span>
+                        <h3 class="title">Senior Test Engineer at Tech Mahindra</h3>
+                        <p class="description">
+                            In 2017, I was promoted to the role of Senior Test Engineer at Tech Mahindra. This gave a kick to my roles and responsibilities and empowered me to lead the project teams on multiple tasks. During this time, I had handled many challenging tasks and entered the field of Analytics.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fa fa-rocket"></i>
+                        </div>
+                        <span class="timeline-year">2013</span>
+                        <h3 class="title">Software Engineer at Tech Mahindra</h3>
+                        <p class="description">
+                            From July 2013, I began my journey as Associate Software Engineer at Tech Mahindra. During my tenure, I have worked with client AT&T, Americas on multiple projects. In 2014, I was promoted to Software Engineer.
+                        </p>
+                    </div>
+                </div>
+				
+				<div class="timeline">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fa fa-globe"></i>
+                        </div>
+                        <span class="timeline-year">2012</span>
+                        <h3 class="title">Intern at Royal Technologies, Patiala</h3>
+                        <p class="description">
+                            From June 2012 to June 2013, I have worked as an Intern at Royal Technologies, Patiala (India).
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fa fa-rocket"></i>
+                        </div>
+                        <span class="timeline-year">2012</span>
+                        <h3 class="title">Graduated (BTech)</h3>
+                        <p class="description">
+                            Graduated in May 2012 from Punjabi University, Patiala (India) with a degree of Bachelor of Technology (BTech) in Computer Science and Engineering.
+                        </p>
+                    </div>
+                </div>
+				
+            </div>
+        </div>
+    </div>
+</div>  
+
+
+
+<div class="container px-2 py-3" id="Projects-Link">
+    <h2 id="Projects" class="pb-2 border-bottom">Projects</h2>
+	</div>	
+  <div class="album py-1 ">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for job in jobs.all %}
+        <div class="col">
+          <div class="card shadow-sm">
+		  
+            <img class="bd-placeholder-img card-img-top" src="{{ job.image.url }}" width="350" height="350" border="3px" solid="#555"></img>
+            <div class="card-body">
+			<a href="#" target="_blank" onclick="getGit({{ job.id }}); return false;" class="card-text">
+              <p class="card-text">{{ job.summary }}</p> 
+			  
+			</a>
+            </div>
+          </div>
+        </div>
+		
+		{% endfor %}
+      </div>
+    </div>	
+  </div>
+  
+</main>
+
+<!-- Source of the below code: https://www.w3schools.com/howto/howto_js_scroll_to_top.asp -->
+<script>
+
+
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+// https://stackoverflow.com/questions/9075540/how-to-create-conditional-hyperlink-in-html
+function getGit(job_id) {
+   if (job_id == 2)
+       window.open("https://github.com/HPKR/Capstone---Healthcare-Detection-of-Indications-using-Image-Processing-ML-and-DL"
+	   , "_blank");
+	else if (job_id == 3)
+		window.open("https://github.com/HPKR/Finance_PortfolioOptimization"
+	   , "_blank");
+	
+	else if (job_id == 4)
+		window.open("https://github.com/HPKR/MarketingAnalytics_InstacartAnalysis"
+	   , "_blank");
+	else if (job_id == 5)
+		window.open("https://github.com/HPKR/US_Homicide_Stats_Analysis"
+	   , "_blank");
+	else if (job_id == 6)
+		window.open("https://github.com/HPKR/Aviation-Accident-EDA"
+	   , "_blank");
+   else
+       window.open("https://github.com/HPKR", "_blank");
+}
+</script>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+     <script src="{% static 'jquery-3.6.0.min.js' %}"></script> 
+	 <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+	 <footer class="small text-center text-muted">
+            
+            <p class="copyright">Copyright &copy; 2021 | Hardeep Kaur</p>
+        </footer>
+  </body>
+</html>
