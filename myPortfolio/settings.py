@@ -26,7 +26,7 @@ SECRET_KEY = 'rp@!l1i1f&uqgkxuki^$!fc2#zr%p+d5gi=(8p0bo$89$e@l5%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['hardeepkaur17.herokuapp.com']
 
 
 # Application definition
@@ -39,7 +39,21 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'jobs',
+    'storages',
 ]
+
+AWS_STORAGE_BUCKET_NAME = 'hardeepkaur17-portfolio'
+AWS_S3_REGION_NAME = 'ca-central-1'  # e.g. us-east-2
+AWS_ACCESS_KEY_ID = 'AKIARLDTRER4GLAUFNEW'
+AWS_SECRET_ACCESS_KEY = 'a28URYnJSL7CRS2OnhWVYvx6kMvQxTbSrB97amjO'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.ca-central-1.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_DEFAULT_ACL = None
+
+STATICFILES_LOCATION = 'static'
+STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+
+MEDIAFILES_LOCATION = 'media'
+DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -79,10 +93,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         #'NAME': BASE_DIR / 'db.sqlite3',
-        'NAME': 'portfoliodb',
-        'USER': 'postgres',
-        'PASSWORD': 'django1234',
-        'HOST': 'localhost',
+        'NAME': 'd98j7scputd83f',
+        'USER': 'vhfvennbwgoiqc',
+        'PASSWORD': '223b0e2733ca06ecd6e155eaa46af4ab9a9bd67b4d48ec6fbd38aca9f6da9356',
+        'HOST': 'ec2-35-170-85-206.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
